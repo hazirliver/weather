@@ -1,0 +1,1 @@
+USE_ROUNDED_COORDS = True

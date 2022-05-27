@@ -21,6 +21,7 @@ class LocalInfo(TypedDict):
     timezone: str
     readme: str
 
+
 def get_coordinates() -> Coordinates:
     """
     It gets the latitude and longitude of the user's location from a website, and returns a Coordinates object with those
@@ -30,9 +31,9 @@ def get_coordinates() -> Coordinates:
     location_info = _get_local_info()
     latitude, longitude = map(float, location_info["loc"].split(","))
     if USE_ROUNDED_COORDS:
-        latitude, longitude = map(lambda x: round(x,1), [latitude, longitude])
+        latitude, longitude = map(lambda x: round(x, 1), [latitude, longitude])
 
-    return Coordinates(latitude=latitude,longitude=longitude)
+    return Coordinates(latitude=latitude, longitude=longitude)
 
 
 def _get_local_ip() -> str:
@@ -61,7 +62,6 @@ def _get_local_info() -> LocalInfo:
         raise CantGetLocationInfo
 
     return location_info
-
 
 
 if __name__ == '__main__':
